@@ -3,7 +3,7 @@ pipeline {
   agent none
 
   environment {
-    DOCKER_IMAGE = "hungcx/jenkins-test"
+    DOCKER_IMAGE = "1712476/jenkins-test"
   }
 
   stages {
@@ -22,7 +22,7 @@ pipeline {
     }
 
     stage("build") {
-      agent { node {label 'master'}}
+      agent { node {label 'dev'}}
       environment {
         DOCKER_TAG="${GIT_BRANCH.tokenize('/').pop()}-${GIT_COMMIT.substring(0,7)}"
       }
